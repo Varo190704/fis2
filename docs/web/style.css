@@ -9,10 +9,7 @@ body {
 
 .centro2 {
   margin-right: 4%;
-  margin-left: 12%;
-  /*
-        funca desde poco mas de mitad de pantalla
-    */
+  margin-left: 10%;
 }
 
 .fotito,
@@ -50,18 +47,6 @@ li {
   width: 70%;
   height: 70%;
   background-color: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.emo {
-  width: 70%;
-  height: 70%;
-  background-image: image-set("img/feliz.png");
   border-radius: 50%;
   display: flex;
   align-items: center;

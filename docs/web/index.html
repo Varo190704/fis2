@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    >
+    <link rel="stylesheet" href="style.css" >
     <title>Interfaz de Usuario</title>
   </head>
   <body>
@@ -15,18 +15,18 @@
       class="centro d-flex justify-content-between align-items-center p-3 bg-light"
       id="headPrinc"
     >
-      <img src="img/logo.png" alt="Logo de empresa" class="logo shadow" />
+      <img src="img/logo.png" alt="Logo de empresa" class="logo shadow">
       <img
         src="img/ftProfe.jpg"
         alt="foto de usuario shadow"
         class="fotito shadow"
-      />
+      >
       <div>
         <input
           type="search"
           class="verde form-control shadow"
           placeholder="Busque lesson..."
-        />
+        >
       </div>
       <div>
         <input
@@ -34,15 +34,14 @@
           value="☰"
           class="form-control esquina shadow"
           id="botonMenu"
-        />
+        >
       </div>
     </header>
     <section id="diaActual">
-      <main class="container my-4">
+      <section class="container my-4">
         <section class="centro p-4 box text-center rounded shadow">
           <div class="centro">
-            <h2 id="NumDia"></h2>
-            <!-- Este texto se cambia con el día seleccionado desde js -->
+            <h2 id="NumDia"></h2> <!-- Este texto se cambia con el día seleccionado desde js -->
             <h3>Tema/s:</h3>
             <ul id="ulLista"></ul>
           </div>
@@ -69,13 +68,13 @@
                 id="txtCompleto"
                 placeholder="Punto completo..."
                 required
-              />
+              >
               <input
                 type="button"
                 class="verde form-control shadow"
                 id="btnCompleto"
                 value="Marcar Completo"
-              />
+              >
             </form>
           </div>
           <figure class="text-center">
@@ -88,26 +87,26 @@
             </div>
             <h4>Anual</h4>
           </figure>
-          <br />
+          <br>
         </section>
-      </main>
+      </section>
     </section>
     <section id="menu">
       <header
         class="centro d-flex justify-content-between align-items-center p-3 bg-light"
       >
-        <img src="img/logo.png" alt="Logo de empresa" class="logo shadow" />
+        <img src="img/logo.png" alt="Logo de empresa" class="logo shadow" >
         <img
           src="img/ftProfe.jpg"
           alt="foto de usuario shadow"
           class="fotito shadow"
-        />
+        >
         <div>
           <input
             type="search"
             class="verde form-control shadow"
             placeholder="Busque lesson..."
-          />
+          >
         </div>
         <div>
           <input
@@ -115,7 +114,7 @@
             value="X"
             class="form-control esquina shadow"
             id="btnCerrarMenu"
-          />
+          >
         </div>
       </header>
       <section class="centro p-4 box rounded shadow">
@@ -130,7 +129,7 @@
       </section>
     </section>
     <section id="diaATrabajar">
-      <main class="container my-4">
+      <section class="container my-4">
         <section class="centro p-4 box2 text-center rounded shadow">
           <h2>Seleccione Día a Trabajar</h2>
           <div
@@ -162,7 +161,7 @@
                 class="verde form-control shadow"
                 id="inputCompletado"
                 placeholder="Agregar punto..."
-              />
+              >
               <button
                 class="verde form-control shadow"
                 id="btnAgregar"
@@ -183,12 +182,12 @@
             </div>
             <h4>Anual</h4>
           </figure>
-          <br />
+          <br >
         </section>
-      </main>
+      </section>
     </section>
     <section id="estaDia">
-      <main class="container my-4">
+      <section class="d-flex justify-content-around justify-content-between mt-4 centro2">
         <figure class="text-center">
           <div
             class="rounded-circle d-flex align-items-center justify-content-center circulo shadow"
@@ -219,10 +218,10 @@
           </div>
           <h4>Anual</h4>
         </figure>
-      </main>
+      </section>
     </section>
     <section id="estaMen">
-      <main class="container my-4">
+      <section class="d-flex justify-content-around justify-content-between mt-4 centro2">
         <figure class="text-center">
           <div
             class="rounded-circle d-flex align-items-center justify-content-center circulo shadow"
@@ -253,10 +252,10 @@
           </div>
           <h4>Anual</h4>
         </figure>
-      </main>
+      </section>
     </section>
     <section id="estaAnno">
-      <main class="container my-4">
+      <section class="d-flex justify-content-around justify-content-between mt-4 centro2">
         <figure class="text-center">
           <div
             class="rounded-circle d-flex align-items-center justify-content-center circulo shadow"
@@ -287,10 +286,10 @@
           </div>
           <h4>Mensual</h4>
         </figure>
-      </main>
+      </section>
     </section>
     <section id="diaSelec">
-      <main class="container my-4">
+      <section class="container my-4">
         <section class="centro p-4 box text-center rounded shadow">
           <div class="centro">
             <h2 id="NumDia2"></h2>
@@ -320,13 +319,13 @@
                 id="fuap"
                 placeholder="Punto completo..."
                 required
-              />
+              >
               <input
                 type="button"
                 class="verde form-control shadow"
                 id="fuap2"
                 value="Marcar Completo"
-              />
+              >
             </form>
           </div>
           <figure class="text-center">
@@ -339,9 +338,9 @@
             </div>
             <h4>Anual</h4>
           </figure>
-          <br />
+          <br >
         </section>
-      </main>
+      </section>
     </section>
     <section id="agregarTema" class="container my-4">
       <h2>Agregar Tema a un Día</h2>
@@ -356,7 +355,7 @@
             min="1"
             max="31"
             required
-          />
+          >
         </div>
         <div class="mb-3">
           <label for="temaNuevo" class="form-label">Tema</label>
@@ -366,7 +365,7 @@
             id="temaNuevo"
             placeholder="Ejemplo: Matemáticas - Geometría"
             required
-          />
+          >
         </div>
         <button type="button" id="btnAgregarTema" class="verde form-control shadow">
           Agregar Tema
