@@ -1,4 +1,4 @@
-class Anno {
+export class Anno {
   constructor(numero) {
     this.numero = numero; // Identificador del año
     this.meses = []; // Lista de meses en el año

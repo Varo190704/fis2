@@ -1,4 +1,4 @@
-class Dia {
+export class Dia {
   constructor() {
     this.numeroDia = 0;
     this.temasADar = []; // Lista de temas por dar

@@ -1,3 +1,7 @@
+import Dia from "./dia.js";
+import Mes from "./mes.js";
+import Anno from "./anno.js";
+
 // Definir los temas posibles
 const temasPosibles = [
   "Matemáticas - Suma y Resta",
@@ -39,7 +43,7 @@ function generarMes(nombreMes, año, mesIndex) {
 }
 
 // Generar el año actual
-const annoActual = (() => {
+export const annoActual = (() => {
   const anno = new Anno(new Date().getFullYear());
   const mesesDelAño = [
     "Enero",

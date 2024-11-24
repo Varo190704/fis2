@@ -1,3 +1,5 @@
+import annoActual from "./datosPreCargados";
+
 // Selección de elementos del DOM
 const botonMenu = document.getElementById("botonMenu");
 const menu = document.getElementById("menu");

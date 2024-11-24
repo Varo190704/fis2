@@ -1,4 +1,4 @@
-class Mes {
+export class Mes {
   constructor(nombre) {
     this.nombre = nombre; // Nombre del mes
     this.dias = []; // Lista de días del mes
