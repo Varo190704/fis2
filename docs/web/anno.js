@@ -1,4 +1,4 @@
-export class Anno {
+class Anno {
   constructor(numero) {
     this.numero = numero; // Identificador del año
     this.meses = []; // Lista de meses en el año
@@ -46,3 +46,5 @@ export class Anno {
     console.log(`Progreso anual: ${this.porcentaje}%`);
   }
 }
+
+export default Anno; 

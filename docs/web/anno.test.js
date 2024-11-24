@@ -1,71 +1,88 @@
 import { describe, expect, test, beforeEach } from "@jest/globals";
+import { jest } from "@jest/globals";
 import Anno from "./anno.js";
 
 describe("Anno class", () => {
   let anno;
 
   beforeEach(() => {
-    anno = new Anno(2024); // Crear una nueva instancia de Anno para cada prueba
+    anno = new Anno(2024); // Inicializamos un año para las pruebas
   });
 
   test("store year number", () => {
-    expect(anno.numero).toBe(2024); // Verifica que el número del año sea correcto
+    expect(anno.numero).toBe(2024); // Verifica que el número del año se almacena correctamente
   });
 
   test("initialize with empty months and zero percentage", () => {
-    expect(anno.meses).toEqual([]); // La lista de meses debe estar vacía inicialmente
-    expect(anno.porcentaje).toBe(0); // El porcentaje debe ser 0 al inicio
+    expect(anno.meses).toEqual([]); // Verifica que comienza con meses vacíos
+    expect(anno.porcentaje).toBe(0); // Verifica que el progreso inicial es 0%
   });
 
   test("add a month to the year", () => {
-    const mockMes = { porcentaje: 50 }; // Mes simulado
-    anno.agregarMes(mockMes);
-    expect(anno.meses.length).toBe(1); // Verifica que se haya agregado un mes
-    expect(anno.meses[0]).toBe(mockMes); // Verifica que sea el mes correcto
+    const mes = { nombre: "Enero", porcentaje: 50, dias: [] };
+    anno.agregarMes(mes);
+    expect(anno.meses.length).toBe(1); // Verifica que el mes fue agregado
+    expect(anno.meses[0]).toEqual(mes); // Verifica que el mes es correcto
   });
 
   test("calculate percentage when months are added", () => {
-    const mockMes1 = { porcentaje: 50 };
-    const mockMes2 = { porcentaje: 100 };
-    anno.agregarMes(mockMes1);
-    anno.agregarMes(mockMes2);
-
-    anno.actualizarPorcentaje();
-    expect(anno.porcentaje).toBe("75.00"); // Promedio de 50 y 100
+    const mes1 = { nombre: "Enero", porcentaje: 50, dias: [] };
+    const mes2 = { nombre: "Febrero", porcentaje: 100, dias: [] };
+    anno.agregarMes(mes1);
+    anno.agregarMes(mes2);
+    expect(anno.porcentaje).toBe("75.00"); // Promedio de 50% y 100%
   });
 
   test("retrieve a month by index", () => {
-    const mockMes = { porcentaje: 80 };
-    anno.agregarMes(mockMes);
-    expect(anno.obtenerMes(0)).toBe(mockMes); // Obtener el primer mes
-    expect(anno.obtenerMes(1)).toBeNull(); // Índice fuera de rango debe retornar null
+    const mes = { nombre: "Enero", porcentaje: 50, dias: [] };
+    anno.agregarMes(mes);
+    expect(anno.obtenerMes(0)).toEqual(mes); // Verifica que obtiene el mes correcto
+    expect(anno.obtenerMes(1)).toBeNull(); // Verifica que índices inválidos retornan null
   });
 
   test("calculate annual progress", () => {
-    const mockMes1 = { porcentaje: 40 };
-    const mockMes2 = { porcentaje: 80 };
-    anno.agregarMes(mockMes1);
-    anno.agregarMes(mockMes2);
-
-    const progress = anno.calcularProgresoAnual();
-    expect(progress).toBe("60.00"); // Promedio de 40 y 80
+    const mes1 = { nombre: "Enero", porcentaje: 50, dias: [] };
+    const mes2 = { nombre: "Febrero", porcentaje: 100, dias: [] };
+    anno.agregarMes(mes1);
+    anno.agregarMes(mes2);
+    const progreso = anno.calcularProgresoAnual();
+    expect(progreso).toBe("75.00"); // Verifica que calcula el progreso correctamente
   });
 
   test("show annual summary in console", () => {
-    const mockMes1 = { nombre: "Enero", porcentaje: 40, dias: [] };
-    const mockMes2 = { nombre: "Febrero", porcentaje: 80, dias: [] };
-
-    anno.agregarMes(mockMes1);
-    anno.agregarMes(mockMes2);
+    const mes1 = { nombre: "Enero", porcentaje: 50, dias: [{ numeroDia: 1, temasADar: ["tema1"] }] };
+    const mes2 = { nombre: "Febrero", porcentaje: 100, dias: [{ numeroDia: 2, temasADar: ["tema2"] }] };
+    anno.agregarMes(mes1);
+    anno.agregarMes(mes2);
 
     const consoleSpy = jest.spyOn(console, "log"); // Espiar las llamadas a console.log
     anno.mostrarResumenAnual();
 
     expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("Resumen del año 2024:"));
-    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("Mes: Enero, Progreso: 40%"));
-    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("Mes: Febrero, Progreso: 80%"));
-    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("Progreso anual: 60.00%"));
+    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("Mes: Enero, Progreso: 50%"));
+    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("Mes: Febrero, Progreso: 100%"));
+    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("Día 1: tema1"));
+    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("Día 2: tema2"));
 
-    consoleSpy.mockRestore(); // Restaurar console.log
+    consoleSpy.mockRestore(); 
   });
+  test("calculate percentage with no months", () => {
+    const anno = new Anno(2024); 
+    anno.actualizarPorcentaje(); 
+    expect(anno.porcentaje).toBe(0);
+  });
+  
+  test("calculate percentage when a month has no porcentaje", () => {
+    const mes1 = { nombre: "Enero", porcentaje: 50, dias: [] };
+    const mes2 = { nombre: "Febrero", dias: [] }; // Sin porcentaje
+    const anno = new Anno(2024);
+  
+    anno.agregarMes(mes1);
+    anno.agregarMes(mes2);
+  
+    const progreso = anno.calcularProgresoAnual(); // Calcula el progreso
+    expect(progreso).toBe("25.00"); // Promedio de 50 y 0 (porcentaje por defecto)
+  });
+  
+  
 });

@@ -1,4 +1,4 @@
-export class Mes {
+class Mes {
   constructor(nombre) {
     this.nombre = nombre; // Nombre del mes
     this.dias = []; // Lista de días del mes
@@ -49,3 +49,5 @@ export class Mes {
     console.log(`Progreso total del mes: ${this.porcentaje}%`);
   }
 }
+
+export default Mes; 

@@ -1,4 +1,4 @@
-export class Dia {
+class Dia {
   constructor() {
     this.numeroDia = 0;
     this.temasADar = []; // Lista de temas por dar
@@ -51,8 +51,8 @@ export class Dia {
     // Devuelve un resumen del día
     console.log(`Temas por dar: ${this.temasADar}`);
     console.log(`Temas dados: ${this.temasDados}`);
-    console.log(
-      `Porcentaje completado: ${this.porcentajeCompletado.toFixed(2)}%`,
-    );
+    console.log(`Porcentaje completado: ${this.porcentajeCompletado.toFixed(2)}%`,);
   }
 }
+
+export default Dia; 
